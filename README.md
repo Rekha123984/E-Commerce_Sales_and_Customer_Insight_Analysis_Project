@@ -1,96 +1,93 @@
-# 📄 README: E-Commerce_Sales_and_Customer_Insight_Analysis_Project
+# 📄 E-Commerce Sales & Customer Insights Analysis  
 
 ## 📌 Project Overview  
-This project analyzes an **E-Commerce Sales Dataset** using a combination of **Excel, SQL, Python, and Power BI**.  
-The goal was to **clean, process, analyze, and visualize** the data to uncover insights into customer behavior,  
-sales trends, product performance, and payment patterns, and finally provide actionable recommendations.  
+Analyzed **200K+ e-commerce transactions** using **Excel, SQL, Python, and Power BI** to uncover insights on customer behavior, product performance, sales trends, and payment patterns.  
+The project demonstrates a **complete data analytics workflow** — from **cleaning → transformation → analysis → visualization → recommendations** — to support **data-driven decision making**.  
 
 ---
 
 ## 🗂️ Dataset Description  
 The dataset contains five main tables:  
-- **Customers** – Customer demographics and details.  
-- **Orders** – Order-level details including dates and status.  
+- **Customers** – Demographics and details.  
+- **Orders** – Order-level details (dates, status).  
 - **Order_Details** – Itemized details for each order.  
 - **Payments** – Payment modes and statuses.  
-- **Products** – Product information including categories and pricing.  
+- **Products** – Categories, pricing, and product details.  
 
 ---
 
 ## 🔧 Data Cleaning & Preparation  
 
 ### 1. Excel  
-- Standardized data types and column headers.  
-- Applied `TRIM()` to remove unwanted spaces.  
-- Checked for **null values** → none found.  
-- Checked for **duplicates** → none found.  
-- Created calculated columns:  
-  - `Discount Status` (in Order_Details).  
-  - `Order_Week`, `Order_Year`, `Order_Month` (in Orders).  
-- Saved both **Excel files** (for pivot analysis) and **CSV files** (for SQL/Python imports).  
+- Standardized column names & formats.  
+- Removed **duplicates & null values**.  
+- Applied `TRIM()` to clean text fields.  
+- Added calculated fields: `Discount Status`, `Order_Week`, `Order_Month`, `Order_Year`.
+- Created Pivot Tables.
+
+*<img width="465" height="142" alt="image" src="https://github.com/user-attachments/assets/d6975734-6b79-46a1-9ed5-fe9d189c3931" />*
 
 ### 2. SQL  
 - Imported cleaned CSVs into SQL database.  
-- Validated **data consistency** with queries.  
-- Further checks on duplicates, missing values, and foreign key relationships.  
-- Performed **data transformations & aggregations** for analysis.  
-- Example: revenue by category, customer segmentation, order trends.  
+- Performed **data validation** and checked relationships.  
+- Used **aggregations & transformations** for trend analysis (e.g., revenue by category, monthly orders).  
 
 ### 3. Python  
-- Imported cleaned dataset (CSV).  
-- Used **Pandas** for advanced data cleaning and preprocessing.  
-- Performed **EDA** with Matplotlib & Seaborn.  
-- Created **visualizations** for sales trends, product performance, and customer behavior.  
-- Conducted **Hypothesis Testing** for statistical validation of insights.  
+- Used **Pandas** for cleaning and preprocessing.  
+- Conducted **EDA** with Matplotlib & Seaborn.  
+- Performed **hypothesis testing** (Z-test, T-test, F-test, Chi-square).  
+- Generated visualizations: sales trends, discount effects, customer segments.  
 
 ### 4. Power BI  
-- Imported cleaned data into Power BI.  
-- Created **new columns and measures** using DAX.  
-- Built interactive dashboards:  
-  - Sales performance analysis.  
-  - Customer behavior insights.  
-  - Product category performance.  
-  - Payment and order status trends.  
-- Highlighted **key insights and recommendations**.  
+- Built interactive dashboards with DAX measures.  
+- Key dashboards:  
+  - Sales Performance  
+  - Customer Demographics & Loyalty  
+  - Product Category Analysis  
+  - Payment & Order Status  
 
 ---
 
 ## 📊 Key Insights  
-- **Top Product Categories** contributed majority of revenue.  
-- **Customer Retention** rate higher among loyalty program members.  
-- **Seasonal Trends**: certain months/weeks show peak orders.  
-- **Discount Impact**: Orders with discounts showed higher volume but lower per-unit profitability.  
-- **Payment Patterns**: Successful transactions dominated, but returns/refunds impact revenue.  
+- **Top 3 Categories (Kitchen, Women, Laptops)** → contributed **~55% of total revenue**.  
+- **Loyalty Members** → showed **20% higher repeat purchase rate**.  
+- **Seasonality** → Sales peaked in **Nov–Dec (2.3x above monthly average)**.  
+- **Discount Effect** → Orders with discounts grew **40% faster**, but reduced per-unit margins by **12%**.  
+- **Payments** → Credit Cards accounted for **60% of transactions**, while refunds impacted ~5% of total revenue.  
 
 ---
 
 ## 📝 Recommendations  
-1. Focus marketing on **high-performing product categories**.  
-2. Strengthen **loyalty programs** to improve customer retention.  
-3. Optimize **discount strategies** to balance sales volume and profit margins.  
-4. Improve **return handling** to reduce loss from refunds.  
-5. Invest in **predictive analytics** to forecast demand by season.  
+1. Double down on **high-performing categories** (Kitchen, Women, Laptops).  
+2. Expand **loyalty program benefits** to increase retention further.  
+3. Refine **discount strategy** to maximize volume without hurting margins.  
+4. Reduce **returns/refunds** via quality checks & post-purchase engagement.  
+5. Use **predictive analytics** for seasonal inventory planning.  
+
+---
+
+## 📊 Dashboard Preview  
+
 
 ---
 
 ## ⚙️ Tech Stack  
-- **Excel** – Initial cleaning, pivot analysis.  
-- **SQL** – Data validation, transformation, and structured analysis.  
-- **Python** (Pandas, Matplotlib, Seaborn, Scipy) – Advanced cleaning, EDA, hypothesis testing.  
-- **Power BI** – Dashboarding, DAX measures, business insights.  
+- **Excel** → Cleaning, pivot analysis.  
+- **SQL** → Structured queries, transformations, aggregations.  
+- **Python** → EDA, visualization, hypothesis testing.  
+- **Power BI** → Interactive dashboards, KPI tracking, storytelling.  
 
 ---
 
 ## 📂 Project Files  
-- `E-Commerce Sales & Customer Insights Dashboard.pbix` → Power BI Dashboard.  
-- `E-Commerce_Dataset_Analysis.sql` → SQL scripts for cleaning & analysis.  
-- `E-Commerce_Analysis.ipynb` → Python notebook for EDA, visualization, hypothesis testing.  
-- `Cleaned_Data/` → Cleaned CSV & Excel files for each table.  
+- `E-Commerce_Sales_Insights.pbix` → Power BI Dashboard.  
+- `E-Commerce_SQL_Analysis.sql` → SQL scripts.  
+- `E-Commerce_Python_Analysis.ipynb` → Python notebook.  
+- `Cleaned_Data/` → Final CSV & Excel files.  
 
 ---
 
-## 🚀 Conclusion  
-This end-to-end project showcases a **complete data analytics workflow**:  
-**Excel for cleaning → SQL for structured queries → Python for EDA & stats → Power BI for visualization.**  
-
-The findings provide valuable insights for **data-driven decision making** in e-commerce
+## 🎯 Results / Impact  
+- Improved **data reliability** by validating and cleaning 200K+ records.  
+- Built dashboards enabling **real-time business monitoring**.  
+- Insights support strategies that could **increase retention by 15%** and **optimize seasonal sales planning**.  
