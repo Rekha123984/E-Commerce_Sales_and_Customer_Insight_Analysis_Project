@@ -93,4 +93,4 @@ The dataset contains five main tables:
 This end-to-end project showcases a **complete data analytics workflow**:  
 **Excel for cleaning → SQL for structured queries → Python for EDA & stats → Power BI for visualization.**  
 
-The findings provide valuable insights for **data-driven decision making** in e-commerce.
+The findings provide valuable insights for **data-driven decision making** in e-commerce
