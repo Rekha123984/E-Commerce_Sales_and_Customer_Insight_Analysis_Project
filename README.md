@@ -44,13 +44,22 @@ The dataset contains five main tables:
 - Enforced **referential integrity** between tables (CustomerID, OrderID, ProductID, PaymentID).  
 - Wrote analytical queries to extract insights, including:  
 
-  - **Sales Trends**  
+  - **Top 10 Locations by Number of Orders and Total Payments**  
     ```sql
-    SELECT Order_Year, Order_Month, SUM(Amount_Paid) AS Monthly_Revenue
-    FROM Orders O
-    JOIN Order_Details OD ON O.Order_Id = OD.Order_Id
-    GROUP BY Order_Year, Order_Month
-    ORDER BY Order_Year, Order_Month;
+    select Top 10 Customers.Location, count(Orders.Order_Id) as Orders, Sum(Payments.Amount_Paid) as Payment
+    from Customers
+    join Orders on Customers.Customer_Id = Orders.Customer_Id
+    join Payments on Orders.Payment_Id = Payments.Payment_Id
+	  group by Customers.Location order by Orders desc, Payment desc ;
+    /*
+    Findings & Observations
+    -Lake Michael has the highest number of orders (108) and the highest payments (56,875.58),
+    making it the top-performing location.
+    -East Michael (99 orders, 49,447.10 payments) and North James (92 orders, 51,261.14 payments)
+    follow closely, showing strong sales and revenue.
+    -The top 10 locations contribute significantly, with payments ranging between 34,663.17 and 56,875.58,
+    indicating a relatively balanced distribution across locations.
+    */
     ```
     ➝ Identified seasonal peaks in November–December.  
 
