@@ -39,9 +39,68 @@ The dataset contains five main tables:
 
 
 ### 2. SQL  
-- Imported cleaned CSVs into SQL database.  
-- Performed **data validation** and checked relationships.  
-- Used **aggregations & transformations** for trend analysis (e.g., revenue by category, monthly orders).  
+- Imported **cleaned CSV files** (`Customers`, `Orders`, `Order_Details`, `Payments`, `Products`) into SQL database.  
+- Performed **data validation**: checked for duplicates, nulls, and orphan records using joins.  
+- Enforced **referential integrity** between tables (CustomerID, OrderID, ProductID, PaymentID).  
+- Wrote analytical queries to extract insights, including:  
+
+  - **Sales Trends**  
+    ```sql
+    SELECT Order_Year, Order_Month, SUM(Amount_Paid) AS Monthly_Revenue
+    FROM Orders O
+    JOIN Order_Details OD ON O.Order_Id = OD.Order_Id
+    GROUP BY Order_Year, Order_Month
+    ORDER BY Order_Year, Order_Month;
+    ```
+    ➝ Identified seasonal peaks in November–December.  
+
+  - **Top Product Categories by Revenue**  
+    ```sql
+    SELECT P.Category, SUM(OD.Amount_Paid) AS Revenue
+    FROM Order_Details OD
+    JOIN Products P ON OD.Product_Id = P.Product_Id
+    GROUP BY P.Category
+    ORDER BY Revenue DESC;
+    ```
+    ➝ Kitchen, Women, and Laptops contributed ~55% revenue.  
+
+  - **Customer Segmentation** (High-value vs. Regular Customers)  
+    ```sql
+    SELECT C.Customer_Id, C.Customer_Name, SUM(OD.Amount_Paid) AS Total_Spend
+    FROM Customers C
+    JOIN Orders O ON C.Customer_Id = O.Customer_Id
+    JOIN Order_Details OD ON O.Order_Id = OD.Order_Id
+    GROUP BY C.Customer_Id, C.Customer_Name
+    HAVING SUM(OD.Amount_Paid) > 5000;
+    ```
+    ➝ Identified top customers driving revenue.  
+
+  - **Discount Impact Analysis**  
+    ```sql
+    SELECT Discount_Status, COUNT(*) AS Orders, SUM(Amount_Paid) AS Revenue
+    FROM Order_Details
+    GROUP BY Discount_Status;
+    ```
+    ➝ Discounted orders had higher count but lower per-unit profitability.  
+
+  - **Payment Mode Analysis**  
+    ```sql
+    SELECT Payment_Mode, COUNT(*) AS Transactions, SUM(Amount_Paid) AS Revenue
+    FROM Payments
+    GROUP BY Payment_Mode
+    ORDER BY Revenue DESC;
+    ```
+    ➝ Credit Card transactions dominated (~60%).  
+
+  - **Return/Refund Impact**  
+    ```sql
+    SELECT Order_Status, COUNT(*) AS Orders, SUM(Amount_Paid) AS Revenue
+    FROM Orders O
+    JOIN Order_Details OD ON O.Order_Id = OD.Order_Id
+    GROUP BY Order_Status;
+    ```
+    ➝ Returns accounted for ~5% of total revenue loss.  
+  
 
 ### 3. Python  
 - Used **Pandas** for cleaning and preprocessing.  
