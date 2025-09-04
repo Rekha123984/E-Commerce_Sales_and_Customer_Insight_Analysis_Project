@@ -112,33 +112,28 @@ The dataset contains five main tables:
 
     /*
     Findings & Observations
-   -The majority of customers fall into the "Adult" category (12,731), showing the main target group.  
-   -"Senior" customers (4,201) form a significant secondary segment, requiring tailored engagement.  		
-   -"Major" group (3,068) is smaller, while "Minor" count is negligible, indicating limited 
-   presence of younger customers.
-   */
+    -The majority of customers fall into the "Adult" category (12,731), showing the main target group.  
+    -"Senior" customers (4,201) form a significant secondary segment, requiring tailored engagement.  		
+    -"Major" group (3,068) is smaller, while "Minor" count is negligible, indicating limited 
+    presence of younger customers.
+    */
     ```
-    ➝ Discounted orders had higher count but lower per-unit profitability.  
-
-  - **Payment Mode Analysis**  
+ 
+  - **Monthly Orders and Payments Analysis**  
     ```sql
-    SELECT Payment_Mode, COUNT(*) AS Transactions, SUM(Amount_Paid) AS Revenue
-    FROM Payments
-    GROUP BY Payment_Mode
-    ORDER BY Revenue DESC;
-    ```
-    ➝ Credit Card transactions dominated (~60%).  
+    select o.Order_Month, count(o.Order_Id) as Orders, sum(p.Amount_Paid) as Payments from Orders o
+    join Payments p on o.Payment_Id=p.Payment_Id
+	group by o.Order_Month order by Orders desc,Payments desc;
 
-  - **Return/Refund Impact**  
-    ```sql
-    SELECT Order_Status, COUNT(*) AS Orders, SUM(Amount_Paid) AS Revenue
-    FROM Orders O
-    JOIN Order_Details OD ON O.Order_Id = OD.Order_Id
-    GROUP BY Order_Status;
+    /*
+    Findings & Observations
+    -January recorded the highest orders and payments,
+    while months like June and September were relatively lower.  
+    -Overall, order volume and revenue are fairly consistent across months with seasonal peaks
+    in Jan and Dec.
+    */
     ```
-    ➝ Returns accounted for ~5% of total revenue loss.  
-  
-
+    
 ### 3. Python  
 - Used **Pandas** for cleaning and preprocessing.  
 - Conducted **EDA** with Matplotlib & Seaborn.  
