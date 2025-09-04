@@ -51,6 +51,7 @@ The dataset contains five main tables:
     join Orders on Customers.Customer_Id = Orders.Customer_Id
     join Payments on Orders.Payment_Id = Payments.Payment_Id
 	  group by Customers.Location order by Orders desc, Payment desc ;
+
     /*
     Findings & Observations
     -Lake Michael has the highest number of orders (108) and the highest payments (56,875.58),
@@ -61,34 +62,61 @@ The dataset contains five main tables:
     indicating a relatively balanced distribution across locations.
     */
     ```
-    ➝ Identified seasonal peaks in November–December.  
-
-  - **Top Product Categories by Revenue**  
+    
+  - **Product Category and Sub-Category Sales Analysis**  
     ```sql
-    SELECT P.Category, SUM(OD.Amount_Paid) AS Revenue
-    FROM Order_Details OD
-    JOIN Products P ON OD.Product_Id = P.Product_Id
-    GROUP BY P.Category
-    ORDER BY Revenue DESC;
+    select p.Category, p.Sub_Category, count(od.Product_Id) as Total_Product_Sold,
+    sum(py.Amount_Paid) as Payments from Products p
+	join Order_Details od on p.Product_Id=od.Product_Id
+	join Payments py on od.Order_Id=py.Order_Id
+	group by Category,Sub_Category
+	order by Category asc, Payments desc;
+
+    /*
+    Findings & Observations
+    -Home (Kitchen) and Clothing (Women) recorded the highest payments and product sales.  
+    -Beauty sub-categories (Makeup, Haircare, Skincare) show consistently strong performance.  
+    -Electronics and Sports also contribute significantly, highlighting diverse revenue streams.  
+    */
     ```
-    ➝ Kitchen, Women, and Laptops contributed ~55% revenue.  
-
-  - **Customer Segmentation** (High-value vs. Regular Customers)  
+    
+  - **Top 5 Products by Order Count**   
     ```sql
-    SELECT C.Customer_Id, C.Customer_Name, SUM(OD.Amount_Paid) AS Total_Spend
-    FROM Customers C
-    JOIN Orders O ON C.Customer_Id = O.Customer_Id
-    JOIN Order_Details OD ON O.Order_Id = OD.Order_Id
-    GROUP BY C.Customer_Id, C.Customer_Name
-    HAVING SUM(OD.Amount_Paid) > 5000;
+    select Top 5 od.Product_Id,p.Sub_Category, count(*) as Total_Values from Order_Details od
+    join Products p on od.Product_Id=p.Product_Id 
+	group by od.Product_Id,p.Sub_Category order by Total_Values desc;
+
+    /*
+    Findings & Observations
+    -Kitchen leads with the highest order count (64), showing strong customer demand.
+    -Kids, Skincare, and Laptops follow closely, each having 60+ orders.
+    -Men’s category also ranks in the Top 5, reflecting balanced interest across essentials and lifestyle.
+    */
     ```
-    ➝ Identified top customers driving revenue.  
-
-  - **Discount Impact Analysis**  
+  
+  - **Customer Age Category Distribution**  
     ```sql
-    SELECT Discount_Status, COUNT(*) AS Orders, SUM(Amount_Paid) AS Revenue
-    FROM Order_Details
-    GROUP BY Discount_Status;
+    select
+    case
+	    when Age between 1 and 17 then 'Minor'
+		when Age between 18 and 25 then 'Major'
+		when Age between 26 and 59 then 'Adult'
+		else 'Senior' end as Age_Category,
+		count(*) as Total_Customer from Customers
+		group by case
+		when Age between 1 and 17 then 'Minor'
+		when Age between 18 and 25 then 'Major'
+		when Age between 26 and 59 then 'Adult'
+		else 'Senior' end
+		order by Total_Customer desc;
+
+    /*
+    Findings & Observations
+   -The majority of customers fall into the "Adult" category (12,731), showing the main target group.  
+   -"Senior" customers (4,201) form a significant secondary segment, requiring tailored engagement.  		
+   -"Major" group (3,068) is smaller, while "Minor" count is negligible, indicating limited 
+   presence of younger customers.
+   */
     ```
     ➝ Discounted orders had higher count but lower per-unit profitability.  
 
