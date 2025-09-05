@@ -142,22 +142,19 @@ The dataset contains five main tables:
 
 *<img width="994" height="442" alt="image" src="https://github.com/user-attachments/assets/0ca128f9-65c2-4c80-a20a-d66aa4262400" />*
 *<img width="1082" height="683" alt="image" src="https://github.com/user-attachments/assets/91b22d9d-c6c2-4817-95c1-86e01afdc071" />*
+
 *<img width="1003" height="409" alt="image" src="https://github.com/user-attachments/assets/18bb4087-e56b-4beb-bdb9-338899eaf108" />*
 *<img width="1071" height="675" alt="image" src="https://github.com/user-attachments/assets/1a99ba69-aaad-4a9f-98d5-4a86c7f95f02" />*
+
 *<img width="1120" height="422" alt="image" src="https://github.com/user-attachments/assets/bb2a6237-1dba-470a-8522-553df3c98ca1" />*
 *<img width="1081" height="736" alt="image" src="https://github.com/user-attachments/assets/3ef42274-6f32-4d7a-bf12-ba2428b2321e" />*
 
+*<img width="975" height="427" alt="image" src="https://github.com/user-attachments/assets/32edad0c-b8f1-4d52-b017-99a9319450c6" />*
+*<img width="1081" height="700" alt="image" src="https://github.com/user-attachments/assets/6cdae690-474d-434f-a423-c617866893c0" />*
 
+*<img width="1126" height="539" alt="image" src="https://github.com/user-attachments/assets/44ed89b6-f1a8-41a4-be26-34a261bfa658" />*
+*<img width="965" height="185" alt="image" src="https://github.com/user-attachments/assets/cbb48b5b-a5cf-41c6-ab23-df1a88a0edb4" />*
 
-
-
-
-
-#### 🔎 Analysis & Queries  
-
-**1️⃣ Customer Age Distribution**  
-```python
-sns.histplot(customers['Age'], bins=10, kde=True)
 
 
 ### 4. Power BI  
@@ -166,7 +163,7 @@ sns.histplot(customers['Age'], bins=10, kde=True)
   - Sales Performance  
   - Customer Demographics & Loyalty  
   - Product Category Analysis  
-  - Payment & Order Status  
+  - Payment & Order Status
 
 ---
 
@@ -190,6 +187,15 @@ sns.histplot(customers['Age'], bins=10, kde=True)
 
 ## 📊 Dashboard Preview  
 
+*<img width="1323" height="741" alt="image" src="https://github.com/user-attachments/assets/c82d3aca-d67e-48b2-9ea2-484d5190ebf2" />*
+
+*<img width="1322" height="739" alt="image" src="https://github.com/user-attachments/assets/8fefb6fd-e012-4966-a568-0f82db3d9782" />*
+
+*<img width="1322" height="743" alt="image" src="https://github.com/user-attachments/assets/34e5609a-1da2-48f9-9ef9-486aa3e34ea0" />*
+
+*<img width="1322" height="748" alt="image" src="https://github.com/user-attachments/assets/fb27cccf-2b06-4472-94a6-cb4a97144536" />*
+
+*<img width="1326" height="745" alt="image" src="https://github.com/user-attachments/assets/db5e2ba7-b292-4b1e-b6af-7e3daa717773" />*
 
 ---
 
@@ -202,9 +208,9 @@ sns.histplot(customers['Age'], bins=10, kde=True)
 ---
 
 ## 📂 Project Files  
-- `E-Commerce_Sales_Insights.pbix` → Power BI Dashboard.  
-- `E-Commerce_SQL_Analysis.sql` → SQL scripts.  
-- `E-Commerce_Python_Analysis.ipynb` → Python notebook.  
+- `E-Commerce Sales & Customer Insights Dashboard.pbix` → Power BI Dashboard.  
+- `E-Commerce_Dataset_Analysis.sql` → SQL scripts.  
+- `E-Commerce_Analysis.ipynb` → Python notebook.  
 - `Cleaned_Data/` → Final CSV & Excel files.  
 
 ---
