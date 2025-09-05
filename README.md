@@ -138,7 +138,14 @@ The dataset contains five main tables:
 - Used **Pandas** for cleaning and preprocessing.  
 - Conducted **EDA** with Matplotlib & Seaborn.  
 - Performed **hypothesis testing** (Z-test, T-test, F-test, Chi-square).  
-- Generated visualizations: sales trends, discount effects, customer segments.  
+- Generated visualizations: sales trends, discount effects, customer segments.   
+
+#### 🔎 Analysis & Queries  
+
+**1️⃣ Customer Age Distribution**  
+```python
+sns.histplot(customers['Age'], bins=10, kde=True)
+
 
 ### 4. Power BI  
 - Built interactive dashboards with DAX measures.  
