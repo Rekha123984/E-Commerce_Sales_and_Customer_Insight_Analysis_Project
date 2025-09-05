@@ -138,7 +138,20 @@ The dataset contains five main tables:
 - Used **Pandas** for cleaning and preprocessing.  
 - Conducted **EDA** with Matplotlib & Seaborn.  
 - Performed **hypothesis testing** (Z-test, T-test, F-test, Chi-square).  
-- Generated visualizations: sales trends, discount effects, customer segments.   
+- Generated visualizations: sales trends, discount effects, customer segments.
+
+*<img width="994" height="442" alt="image" src="https://github.com/user-attachments/assets/0ca128f9-65c2-4c80-a20a-d66aa4262400" />*
+*<img width="1082" height="683" alt="image" src="https://github.com/user-attachments/assets/91b22d9d-c6c2-4817-95c1-86e01afdc071" />*
+*<img width="1003" height="409" alt="image" src="https://github.com/user-attachments/assets/18bb4087-e56b-4beb-bdb9-338899eaf108" />*
+*<img width="1071" height="675" alt="image" src="https://github.com/user-attachments/assets/1a99ba69-aaad-4a9f-98d5-4a86c7f95f02" />*
+*<img width="1120" height="422" alt="image" src="https://github.com/user-attachments/assets/bb2a6237-1dba-470a-8522-553df3c98ca1" />*
+*<img width="1081" height="736" alt="image" src="https://github.com/user-attachments/assets/3ef42274-6f32-4d7a-bf12-ba2428b2321e" />*
+
+
+
+
+
+
 
 #### 🔎 Analysis & Queries  
 
