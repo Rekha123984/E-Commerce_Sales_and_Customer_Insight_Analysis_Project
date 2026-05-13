@@ -1,3 +1,5 @@
+→ For a business-analyst-oriented summary of this project, see ECommerce_CaseStudy.docx
+
 # 📄 E-Commerce Sales & Customer Insights Analysis  
 
 ## 📌 Project Overview  
